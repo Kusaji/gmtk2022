@@ -14,11 +14,11 @@ public class PlayerAudioController : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        speaker.PlayOneShot(attackSounds[Random.Range(0, attackSounds.Count)], PlayerOptions.soundFXVolume / 3);
+        speaker.PlayOneShot(attackSounds[Random.Range(0, attackSounds.Count)], PlayerOptions.soundFXVolume * 0.20f);
     }
 
     public void PlayFootStep()
     {
-        speaker.PlayOneShot(footStepSounds[Random.Range(0, footStepSounds.Count)], PlayerOptions.soundFXVolume / 3);
+        speaker.PlayOneShot(footStepSounds[Random.Range(0, footStepSounds.Count)], PlayerOptions.soundFXVolume * 0.1f);
     }
 }

@@ -13,6 +13,7 @@ public class EnemyNavController : MonoBehaviour
     [Header("Target")]
     public GameObject currentTarget;
     public float distanceToTarget;
+    public float maxDistance;
     public bool inRange;
     public bool aimingAtTarget;
 
@@ -35,11 +36,10 @@ public class EnemyNavController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTarget = GameObject.FindGameObjectWithTag("Player");
         enemyComponents.navAgent.stoppingDistance = followDistance;
         enemyComponents.navAgent.speed = moveSpeed;
 
-        if (NamedFollowTargetRoutine == null)
+/*        if (NamedFollowTargetRoutine == null)
         {
             NamedFollowTargetRoutine = FollowTargetRoutine(currentTarget);
             StartCoroutine(NamedFollowTargetRoutine);
@@ -49,7 +49,7 @@ public class EnemyNavController : MonoBehaviour
             StopCoroutine(NamedFollowTargetRoutine);
             NamedFollowTargetRoutine = FollowTargetRoutine(currentTarget);
             StartCoroutine(NamedFollowTargetRoutine);
-        }
+        }*/
         
     }
 
@@ -62,20 +62,26 @@ public class EnemyNavController : MonoBehaviour
         }
     }
 
+    public void StartFollowingTarget()
+    {
+        NamedFollowTargetRoutine = FollowTargetRoutine(currentTarget);
+        StartCoroutine(NamedFollowTargetRoutine);
+    }
+
     public virtual IEnumerator FollowTargetRoutine(GameObject target)
     {
         while (enemyComponents.enemyHealth.isAlive)
         {
             distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
 
-            if (distanceToTarget > followDistance)
+            if (distanceToTarget > followDistance && distanceToTarget <= maxDistance)
             {
                 enemyComponents.navAgent.destination = currentTarget.transform.position;
                 currentStatus = navStatus.following;
                 enemyComponents.enemyAnimator.SetTrigger("Running");
                 inRange = false;
             }
-            else
+            else if (distanceToTarget <= followDistance)
             {
                 currentStatus = navStatus.idle;
                 inRange = true;
@@ -84,6 +90,12 @@ public class EnemyNavController : MonoBehaviour
                     enemyComponents.enemyAnimator.SetTrigger("Idle");
                 }
                 
+            }
+            else if (distanceToTarget > maxDistance)
+            {
+                target = null;
+                enemyComponents.enemyAnimator.SetTrigger("Idle");
+                yield break;
             }
             yield return new WaitForSeconds(0.1f);
         }

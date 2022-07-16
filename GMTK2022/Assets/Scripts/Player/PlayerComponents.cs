@@ -13,5 +13,6 @@ public class PlayerComponents : MonoBehaviour
     public PlayerUI ui;
     public PlayerAttackController attackController;
     public PlayerAudioController audioController;
+    public PlayerAbilities abilities;
 
 }

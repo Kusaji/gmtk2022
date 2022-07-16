@@ -5,14 +5,23 @@ using UnityEngine;
 public class EnemyAggro : MonoBehaviour
 {
     public EnemyComponents enemyComponents;
+    public Vector3 enemyAggroRadius;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        transform.localScale = enemyAggroRadius;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            enemyComponents.enemyNavController.currentTarget = other.gameObject;
-            enemyComponents.enemyNavController.StartFollowingTarget();
+            if (enemyComponents.enemyNavController.currentTarget == null)
+            {
+                enemyComponents.enemyNavController.currentTarget = other.gameObject;
+                enemyComponents.enemyNavController.StartFollowingTarget();
+            }
         }
     }
 }

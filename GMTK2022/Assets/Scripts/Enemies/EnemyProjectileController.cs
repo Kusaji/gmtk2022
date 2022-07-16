@@ -30,7 +30,7 @@ public class EnemyProjectileController : MonoBehaviour
             Destroy(gameObject);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
-        else if (other.gameObject.CompareTag("Environment"))
+        else if (other.gameObject.CompareTag("Environment") || other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
             Instantiate(hitEffect, transform.position, Quaternion.identity);

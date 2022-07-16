@@ -1329,6 +1329,7 @@ GameObject:
   - component: {fileID: 4355611899258796607}
   - component: {fileID: 800399777476637149}
   - component: {fileID: 3742215507078379856}
+  - component: {fileID: 6513333557201169512}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1385,6 +1386,7 @@ MonoBehaviour:
   ui: {fileID: 595207377357261709}
   attackController: {fileID: 5503192711784812051}
   audioController: {fileID: 4993881790485152462}
+  abilities: {fileID: 6513333557201169512}
 --- !u!114 &503033815247460218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1563,6 +1565,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1d5524d507c23d4699eda843dcd1be2, type: 3}
   deathSounds: []
   painSounds: []
+  footStepSounds: []
 --- !u!54 &4355611899258796607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1694,6 +1697,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6513333557201169512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623620855600229251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de098dbbecf17d4b8b00053a830b249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components: {fileID: 5385663810201681049}
+  minimumTeleportDistance: 0
+  maximumTeleportDistance: 0
 --- !u!1 &7970830458813344099
 GameObject:
   m_ObjectHideFlags: 0

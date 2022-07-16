@@ -39,9 +39,12 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (components.health.isAlive)
         {
-            BasicAttack();
+            if (Input.GetMouseButton(0))
+            {
+                BasicAttack();
+            }
         }
 
     }
@@ -82,6 +85,7 @@ public class PlayerAttackController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 100f))
         {
             //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue, 5f);
+            Debug.Log(hit.transform.gameObject);
             cameraRayHitPoint = hit.point;
             shootPoint.transform.LookAt(cameraRayHitPoint);
         }

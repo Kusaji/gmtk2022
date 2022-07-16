@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5048316537592680093}
   - component: {fileID: 5048316537582272847}
   - component: {fileID: 5048316537582719531}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 6006773397518961636}
   - component: {fileID: 5187359813880300749}
   - component: {fileID: 7300807986121008139}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerPistolShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 5048316537592713935}
   - component: {fileID: 5048316537607910487}
   - component: {fileID: 5048316537606728593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9706,7 +9706,7 @@ GameObject:
   - component: {fileID: 5048316537592687141}
   - component: {fileID: 5048316537607839171}
   - component: {fileID: 5048316537606756751}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14450,7 +14450,7 @@ GameObject:
   - component: {fileID: 5048316537592662425}
   - component: {fileID: 5048316537607836427}
   - component: {fileID: 5048316537607821249}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}

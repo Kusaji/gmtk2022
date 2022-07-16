@@ -24,8 +24,12 @@ public class EnemyNavController : MonoBehaviour
     [Header("Options")]
     public float moveSpeed;
     public float followDistance;
+    public float regularFollowDistance;
+    public float heightDifferenceFollowDifference;
     public float lookAtSpeed;
     public Vector3 lookAtRayOffset;
+
+    public float heightDifference;
 
     [Header("Components")]
     public EnemyComponents enemyComponents;
@@ -64,7 +68,9 @@ public class EnemyNavController : MonoBehaviour
 
     public void StartFollowingTarget()
     {
+        enemyComponents.playerHealth = currentTarget.GetComponent<PlayerHealth>();
         NamedFollowTargetRoutine = FollowTargetRoutine(currentTarget);
+        enemyComponents.speaker.PlayAggroSound();
         StartCoroutine(NamedFollowTargetRoutine);
     }
 
@@ -73,6 +79,20 @@ public class EnemyNavController : MonoBehaviour
         while (enemyComponents.enemyHealth.isAlive)
         {
             distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+            heightDifference = transform.position.y - currentTarget.transform.position.y;
+
+            if (heightDifference < -1 || heightDifference > 1)
+            {
+                followDistance = heightDifferenceFollowDifference;
+                enemyComponents.navAgent.stoppingDistance = followDistance;
+                inRange = false;
+            }
+            else
+            {
+                followDistance = regularFollowDistance;
+                enemyComponents.navAgent.stoppingDistance = followDistance;
+            }
 
             if (distanceToTarget > followDistance && distanceToTarget <= maxDistance)
             {

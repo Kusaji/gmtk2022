@@ -5,17 +5,28 @@ using UnityEngine;
 public class RangedEnemyAttackController : AttackController
 {
     [Header("Attributes")]
+    public int minimumProjectileSpeed;
+    public int maximumProjectileSpeed;
     public float projectileSpeed;
+
+    [Header("GameObjects")]
+    public GameObject shootPoint;
 
     [Header("Prefabs")]
     public GameObject projectile;
 
     [Header("Options")]
+
     public bool debugLog;
 
 
     //Coroutines
     private IEnumerator namedAttackRoutine;
+
+    private void Start()
+    {
+        projectileSpeed = Random.Range(minimumProjectileSpeed, maximumProjectileSpeed);
+    }
 
     public override void StartAttacking()
     {
@@ -36,7 +47,8 @@ public class RangedEnemyAttackController : AttackController
         base.Attack();
         enemyComponents.enemyAnimator.SetTrigger("Attack");
         enemyComponents.speaker.PlayAttackSound();
-        var spawnedProjectile = Instantiate(projectile, transform.position + enemyComponents.enemyNavController.lookAtRayOffset, transform.rotation);
+        shootPoint.transform.LookAt(enemyComponents.enemyNavController.currentTarget.transform.position + new Vector3(0.0f, 1.0f, 0.0f));
+        var spawnedProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
         var spawnedProjectileController = spawnedProjectile.GetComponent<EnemyProjectileController>();
         spawnedProjectileController.damage = damage;
         spawnedProjectileController.projectileSpeed = projectileSpeed;
@@ -50,7 +62,7 @@ public class RangedEnemyAttackController : AttackController
     public IEnumerator AttackRoutine()
     {
         isAttacking = true;
-        while (enemyComponents.enemyNavController.aimingAtTarget)
+        while (enemyComponents.enemyNavController.aimingAtTarget && enemyComponents.enemyHealth.isAlive && enemyComponents.playerHealth.isAlive)
         {
             Attack();
             yield return new WaitForSeconds(attackCooldown);

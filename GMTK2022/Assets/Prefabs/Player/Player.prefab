@@ -1403,6 +1403,7 @@ MonoBehaviour:
   isAlive: 0
   maxHealth: 100
   currentHealth: 0
+  playerSpawn: {fileID: 0}
 --- !u!114 &3571772043264544767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1546,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: {fileID: 5385663810201681049}
+  pauseMenu: {fileID: 1324961098003549804}
   health: {fileID: 1829008953504356654}
+  isPaused: 0
 --- !u!114 &4993881790485152462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,7 +1568,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1d5524d507c23d4699eda843dcd1be2, type: 3}
   deathSounds: []
   painSounds: []
-  footStepSounds: []
+  footStepSounds:
+  - {fileID: 8300000, guid: 43874a03b26f321458f6eacb889ab528, type: 3}
+  - {fileID: 8300000, guid: 45b84bfe8af5fb14281b3802749c6019, type: 3}
+  - {fileID: 8300000, guid: afcdfc20e8fdd364984ba5eb21f2afb4, type: 3}
+  - {fileID: 8300000, guid: 33f3e0d08e7ee5640adaceedbdba12ce, type: 3}
+  abilitySounds:
+  - {fileID: 8300000, guid: 6dcdde41da9748849a0825acda76403f, type: 3}
 --- !u!54 &4355611899258796607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1710,8 +1719,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: {fileID: 5385663810201681049}
+  teleportReady: 0
+  teleportCooldown: 0
   minimumTeleportDistance: 0
   maximumTeleportDistance: 0
+  teleportEffectPrefab: {fileID: 3934750065830548896, guid: 83708b02a9e110c4d832cbb19560d541, type: 3}
 --- !u!1 &7970830458813344099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2012,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7627151474576205713}
     m_Modifications:
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 595207377357261709}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047174319369401759, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4468240524272095773, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
       propertyPath: m_Name
       value: PlayerUI
@@ -2088,6 +2128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6245607459181173793, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
 --- !u!224 &1573967013983142914 stripped
@@ -2106,6 +2150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1324961098003549804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6245607459181173793, guid: aaf1ee3e499ad5b48a69e3e2503beba5, type: 3}
+  m_PrefabInstance: {fileID: 4958445588836291149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8698169761410168246
 PrefabInstance:
   m_ObjectHideFlags: 0

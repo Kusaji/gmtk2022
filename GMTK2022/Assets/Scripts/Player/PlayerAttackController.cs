@@ -85,7 +85,7 @@ public class PlayerAttackController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 100f))
         {
             //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue, 5f);
-            Debug.Log(hit.transform.gameObject);
+            //Debug.Log(hit.transform.gameObject);
             cameraRayHitPoint = hit.point;
             shootPoint.transform.LookAt(cameraRayHitPoint);
         }

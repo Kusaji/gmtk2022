@@ -44,9 +44,6 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        Debug.Log("Starting spawn routine");
-        Debug.Log(playerHealth.isAlive);
-
         while (playerHealth.isAlive)
         {
             if (currentEnemies < maxEnemies)

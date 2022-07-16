@@ -14,9 +14,12 @@ public class PlayerHealth : MonoBehaviour
     [Header("Attributes")]
     public float maxHealth;
     public float currentHealth;
+
+    public GameObject playerSpawn;
     // Start is called before the first frame update
     void Start()
     {
+        playerSpawn = GameObject.Find("PlayerSpawn");
         InitializePlayerHealth();
     }
 
@@ -31,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
             isAlive = false;
             components.animationController.playerAnimator.SetTrigger("Dead");
             components.motor.enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+            components.ui.pauseMenu.SetActive(true);
         }
     }
 
@@ -39,5 +44,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         isAlive = true;
         components.ui.SetHealthText();
+        components.motor.SetPosition(playerSpawn.transform.position);
     }
 }

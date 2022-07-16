@@ -11,6 +11,7 @@ public class PlayerAbilities : MonoBehaviour
     public float teleportCooldown;
     public float minimumTeleportDistance;
     public float maximumTeleportDistance;
+    public GameObject teleportEffectPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,10 @@ public class PlayerAbilities : MonoBehaviour
 
     void Teleport(Vector3 direction)
     {
+        Instantiate(teleportEffectPrefab, transform.position, Quaternion.Euler(90f, 0.0f, 0.0f));
         components.motor.SetPosition(transform.position + direction * Random.Range(minimumTeleportDistance, maximumTeleportDistance));
+        Instantiate(teleportEffectPrefab, transform.position, Quaternion.Euler(90f, 0.0f, 0.0f));
+        components.audioController.PlayAbilitySound(0, 0.5f);
         StartCoroutine(TeleportCooldownRoutine());
     }
 

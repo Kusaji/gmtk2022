@@ -11,6 +11,7 @@ public class PlayerAudioController : MonoBehaviour
     public List<AudioClip> deathSounds;
     public List<AudioClip> painSounds;
     public List<AudioClip> footStepSounds;
+    public List<AudioClip> abilitySounds;
 
     public void PlayAttackSound()
     {
@@ -20,5 +21,10 @@ public class PlayerAudioController : MonoBehaviour
     public void PlayFootStep()
     {
         speaker.PlayOneShot(footStepSounds[Random.Range(0, footStepSounds.Count)], PlayerOptions.soundFXVolume * 0.1f);
+    }
+
+    public void PlayAbilitySound(int soundEffect, float volumeReduction)
+    {
+        speaker.PlayOneShot(abilitySounds[soundEffect], PlayerOptions.soundFXVolume * volumeReduction);
     }
 }

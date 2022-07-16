@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RangedEnemyAttackController : AttackController
 {
+    [Header("Attributes")]
+    public float projectileSpeed;
+
     [Header("Prefabs")]
     public GameObject projectile;
 
@@ -32,7 +35,11 @@ public class RangedEnemyAttackController : AttackController
     {
         base.Attack();
         enemyComponents.enemyAnimator.SetTrigger("Attack");
-        //Spawn Projectile Prefab.
+        enemyComponents.speaker.PlayAttackSound();
+        var spawnedProjectile = Instantiate(projectile, transform.position + enemyComponents.enemyNavController.lookAtRayOffset, transform.rotation);
+        var spawnedProjectileController = spawnedProjectile.GetComponent<EnemyProjectileController>();
+        spawnedProjectileController.damage = damage;
+        spawnedProjectileController.projectileSpeed = projectileSpeed;
 
         if (debugLog)
         {

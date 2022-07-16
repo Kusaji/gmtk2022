@@ -1433,7 +1433,7 @@ MonoBehaviour:
   OrientationSharpness: 10
   OrientationMethod: 0
   MaxAirMoveSpeed: 15
-  AirAccelerationSpeed: 18
+  AirAccelerationSpeed: 5
   Drag: 0.1
   AllowJumpingWhenSliding: 0
   JumpUpSpeed: 10
@@ -1524,6 +1524,7 @@ MonoBehaviour:
   components: {fileID: 5385663810201681049}
   shootPoint: {fileID: 7622468319433945092}
   shootPointOffset: {x: 0, y: 0, z: 0}
+  cameraRayHitPoint: {x: 0, y: 0, z: 0}
   basicAttackDamage: 10
   basicAttackCooldown: 0.25
   basicAttackProjectileSpeed: 20

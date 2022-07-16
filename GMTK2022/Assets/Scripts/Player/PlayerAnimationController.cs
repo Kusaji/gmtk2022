@@ -13,6 +13,7 @@ public class PlayerAnimationController : MonoBehaviour
     public float jumpInput;
 
     [Header("Components")]
+    public PlayerComponents components;
     public Animator playerAnimator;
 
     // Start is called before the first frame update
@@ -24,8 +25,11 @@ public class PlayerAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandlePlayerInput();
-        PlayerAnimationTriggers();
+        if (components.health.isAlive)
+        {
+            HandlePlayerInput();
+            PlayerAnimationTriggers();
+        }
     }
 
     void PlayerAnimationTriggers()
@@ -59,12 +63,6 @@ public class PlayerAnimationController : MonoBehaviour
         {
             playerAnimator.SetFloat("Horizontal", 0);
             playerAnimator.SetFloat("Vertical", 0);
-        }
-
-
-        if (Input.GetMouseButtonDown(0))   
-        {
-            playerAnimator.SetTrigger("Attack1");
         }
     }
 

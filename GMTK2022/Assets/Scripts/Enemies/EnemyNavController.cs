@@ -56,7 +56,7 @@ public class EnemyNavController : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (inRange)
+        if (inRange && enemyComponents.enemyHealth.isAlive)
         {
             TrackTarget();
         }
@@ -64,7 +64,7 @@ public class EnemyNavController : MonoBehaviour
 
     public virtual IEnumerator FollowTargetRoutine(GameObject target)
     {
-        while (gameObject)
+        while (enemyComponents.enemyHealth.isAlive)
         {
             distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
 

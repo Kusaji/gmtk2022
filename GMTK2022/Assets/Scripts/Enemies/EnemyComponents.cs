@@ -14,4 +14,5 @@ public class EnemyComponents : MonoBehaviour
     public AttackController enemyAttackController;
     public EnemyNavController enemyNavController;
     public EnemySoundController speaker;
+    public EnemyHealthController enemyHealth;
 }

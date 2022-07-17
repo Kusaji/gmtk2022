@@ -26,7 +26,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+            other.gameObject.GetComponent<EnemyComponents>().enemyHealth.TakeDamage(damage);
             Destroy(gameObject);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }

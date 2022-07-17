@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8472144696960310012}
   - component: {fileID: 4350403048793803519}
   - component: {fileID: 7821176708749070608}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemyShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,11 +425,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7046814953253937625, guid: 80e07e14c8fa5d34883175637c33f821, type: 3}
-  - {fileID: 2781410738928257789, guid: 80e07e14c8fa5d34883175637c33f821, type: 3}
-  - {fileID: 6524843967714326363, guid: 80e07e14c8fa5d34883175637c33f821, type: 3}
-  - {fileID: -9007632685173550870, guid: 80e07e14c8fa5d34883175637c33f821, type: 3}
-  - {fileID: 3511325375820423461, guid: 80e07e14c8fa5d34883175637c33f821, type: 3}
+  - {fileID: 2100000, guid: b360a30b49f953b449983553ba68ee9b, type: 2}
+  - {fileID: 2100000, guid: 9d8d30244c48d6b4587376df625afff0, type: 2}
+  - {fileID: 2100000, guid: b360a30b49f953b449983553ba68ee9b, type: 2}
+  - {fileID: 2100000, guid: dd46cfd9a9afa174ab5b1ff6dac7f8cd, type: 2}
+  - {fileID: 2100000, guid: 486b41b7cabcc96498233f794077d453, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -987,14 +987,14 @@ GameObject:
   - component: {fileID: 8694321502945404058}
   - component: {fileID: 7211123924919507971}
   - component: {fileID: 8350729219649158691}
-  - component: {fileID: 8350729219649158690}
   - component: {fileID: 8350729219649158693}
+  - component: {fileID: 8350729219649158690}
+  - component: {fileID: 7003647427798167821}
   - component: {fileID: 8350729219649158692}
-  - component: {fileID: 3421830549858354666}
   - component: {fileID: 5727392538676584271}
+  - component: {fileID: 3421830549858354666}
   - component: {fileID: 3300096262930439816}
   - component: {fileID: 1700738352876851489}
-  - component: {fileID: 7003647427798167821}
   m_Layer: 0
   m_Name: Enemy_2Legs
   m_TagString: Enemy
@@ -1061,6 +1061,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8350729219649158693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350729219649158688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdbe924b4c692b4ba0aa8f4f426b7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navAgent: {fileID: 8350729219649158691}
+  enemyAnimator: {fileID: 7211123924919507971}
+  enemyAttackController: {fileID: 8350729219649158692}
+  enemyNavController: {fileID: 8350729219649158690}
+  speaker: {fileID: 5727392538676584271}
+  enemyHealth: {fileID: 7003647427798167821}
+  enemyAggro: {fileID: 5867532833598643112}
+  playerHealth: {fileID: 0}
 --- !u!114 &8350729219649158690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,7 +1108,7 @@ MonoBehaviour:
   lookAtRayOffset: {x: 0, y: 0.45, z: 0}
   heightDifference: 0
   enemyComponents: {fileID: 8350729219649158693}
---- !u!114 &8350729219649158693
+--- !u!114 &7003647427798167821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1097,16 +1117,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8350729219649158688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdbe924b4c692b4ba0aa8f4f426b7dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 656b1899124ef2849a79d8b5b2db3c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navAgent: {fileID: 8350729219649158691}
-  enemyAnimator: {fileID: 7211123924919507971}
-  enemyAttackController: {fileID: 8350729219649158692}
-  enemyNavController: {fileID: 8350729219649158690}
-  speaker: {fileID: 5727392538676584271}
-  enemyHealth: {fileID: 7003647427798167821}
-  enemyAggro: {fileID: 5867532833598643112}
+  enemyComponents: {fileID: 8350729219649158693}
+  mySpawner: {fileID: 0}
+  isAlive: 0
+  maxHealth: 50
+  currentHealth: 0
+  explosionPrefab: {fileID: 4259433701665748424, guid: c03f5d70709a9fc4a87c0cf29da3d0c2, type: 3}
 --- !u!114 &8350729219649158692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,6 +1148,25 @@ MonoBehaviour:
   shootPoint: {fileID: 913095010949307323}
   projectile: {fileID: 3991465613598472824, guid: de306f7bba2ed694f9c4c073c600ac9b, type: 3}
   debugLog: 0
+--- !u!114 &5727392538676584271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350729219649158688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7776cd7b8ba4a504eba27dd89389fd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSounds:
+  - {fileID: 8300000, guid: 723191daa845c6f4fa0979dbba60cfc4, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 3fa8c7021a3918a4fb49109f52f99dc1, type: 3}
+  aggroSounds:
+  - {fileID: 8300000, guid: 2bd1d8edce4437242bae2591808147f8, type: 3}
+  speaker: {fileID: 3421830549858354666}
 --- !u!82 &3421830549858354666
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1225,25 +1263,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5727392538676584271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8350729219649158688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7776cd7b8ba4a504eba27dd89389fd71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSounds:
-  - {fileID: 8300000, guid: 723191daa845c6f4fa0979dbba60cfc4, type: 3}
-  deathSounds:
-  - {fileID: 8300000, guid: 3fa8c7021a3918a4fb49109f52f99dc1, type: 3}
-  aggroSounds:
-  - {fileID: 8300000, guid: 2bd1d8edce4437242bae2591808147f8, type: 3}
-  speaker: {fileID: 3421830549858354666}
 --- !u!54 &3300096262930439816
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1273,24 +1292,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.45
   m_Center: {x: 0, y: 0.46818572, z: 0}
---- !u!114 &7003647427798167821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8350729219649158688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 656b1899124ef2849a79d8b5b2db3c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyComponents: {fileID: 8350729219649158693}
-  mySpawner: {fileID: 0}
-  isAlive: 0
-  maxHealth: 50
-  currentHealth: 0
-  explosionPrefab: {fileID: 4259433701665748424, guid: c03f5d70709a9fc4a87c0cf29da3d0c2, type: 3}
 --- !u!1 &8394587504031022056
 GameObject:
   m_ObjectHideFlags: 0

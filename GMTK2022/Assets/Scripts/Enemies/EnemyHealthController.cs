@@ -35,6 +35,7 @@ public class EnemyHealthController : MonoBehaviour
         if (currentHealth <= 0 && isAlive)
         {
             StartCoroutine(DeathRoutine());
+            GameObject.Find("PlayerScore").GetComponent<PlayerScore>().AddKill();
         }
     }
 
@@ -44,7 +45,7 @@ public class EnemyHealthController : MonoBehaviour
         isAlive = true;
     }
 
-    public IEnumerator DeathRoutine()
+    public virtual IEnumerator DeathRoutine()
     {
         isAlive = false;
         enemyComponents.enemyAnimator.SetTrigger("Dead");

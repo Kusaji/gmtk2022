@@ -9,6 +9,11 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemies;
     public float enemySpawnCooldown;
 
+    [Header("Scaling Difficulty")]
+    public int enemiesSpawned;
+    public int nextSpawnIncrease;
+    public int spawnIncreaseAmount;
+
     [Header("Prefabs")]
     public List<GameObject> enemyPrefabs;
     public List<GameObject> enemySpawnPoints;
@@ -18,13 +23,16 @@ public class EnemySpawner : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private Transform enemyTransform;
+    private PlayerComponents playerComponents;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerComponents = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponents>();
+        playerHealth = playerComponents.health;
         enemyTransform = GameObject.Find("EnemySpawner").transform;
         StartCoroutine(EnemySpawnRoutine());
+        playerComponents.ui.SetMaxEnemiesText(maxEnemies);
     }
 
     public void SpawnEnemy()
@@ -37,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(spawnEffectPrefab, spawnedEnemy.transform.position, Quaternion.identity, enemyTransform);
 
         currentEnemies++;
-        spawnedEnemy.GetComponent<EnemyHealthController>().mySpawner = this;
+        spawnedEnemy.GetComponent<EnemyComponents>().enemyHealth.mySpawner = this;
     }
 
     public IEnumerator EnemySpawnRoutine()
@@ -49,6 +57,14 @@ public class EnemySpawner : MonoBehaviour
             if (currentEnemies < maxEnemies)
             {
                 SpawnEnemy();
+                enemiesSpawned++;
+
+                if (enemiesSpawned > nextSpawnIncrease)
+                {
+                    maxEnemies += spawnIncreaseAmount;
+                    nextSpawnIncrease += nextSpawnIncrease;
+                    playerComponents.ui.SetMaxEnemiesText(maxEnemies);
+                }
             }
             yield return new WaitForSeconds(enemySpawnCooldown);
         }

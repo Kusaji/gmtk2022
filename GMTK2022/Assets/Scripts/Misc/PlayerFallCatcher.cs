@@ -10,8 +10,8 @@ public class PlayerFallCatcher : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
             other.gameObject.GetComponent<PlayerComponents>().motor.SetPosition(playerSpawn.transform.position);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
         }
     }
 }

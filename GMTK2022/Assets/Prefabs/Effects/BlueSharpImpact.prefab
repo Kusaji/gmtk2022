@@ -9733,6 +9733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 1
   speaker: {fileID: 1904322251349898994}
+  lowerAudio: 1
+  lowerAmount: 0.5
 --- !u!1 &1904322251355415828
 GameObject:
   m_ObjectHideFlags: 0

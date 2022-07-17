@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3991465613598472831}
   - component: {fileID: 3429154200129440967}
   - component: {fileID: 7533988192485341501}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ChargeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4860,7 +4860,7 @@ GameObject:
   - component: {fileID: 3991465613598798434}
   - component: {fileID: 3991465613588351700}
   - component: {fileID: 3991465613587784084}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,7 +4893,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0.31034467, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 3991465613598844888}
   - component: {fileID: 3991465613579420626}
   - component: {fileID: 3991465613578517102}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9706,7 +9706,7 @@ GameObject:
   - component: {fileID: 3991465613598818006}
   - component: {fileID: 3991465613579449606}
   - component: {fileID: 3991465613578471534}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14450,7 +14450,7 @@ GameObject:
   - component: {fileID: 3991465613598885390}
   - component: {fileID: 3991465613579502392}
   - component: {fileID: 3991465613579463642}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}

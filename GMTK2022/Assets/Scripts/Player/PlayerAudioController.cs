@@ -13,6 +13,9 @@ public class PlayerAudioController : MonoBehaviour
     public List<AudioClip> footStepSounds;
     public List<AudioClip> abilitySounds;
 
+    public AudioClip basicBlasterSound;
+    public AudioClip revolverBlasterSound;
+
     public void PlayAttackSound()
     {
         speaker.PlayOneShot(attackSounds[Random.Range(0, attackSounds.Count)], PlayerOptions.soundFXVolume);
@@ -26,5 +29,10 @@ public class PlayerAudioController : MonoBehaviour
     public void PlayAbilitySound(int soundEffect, float volumeReduction)
     {
         speaker.PlayOneShot(abilitySounds[soundEffect], PlayerOptions.soundFXVolume * volumeReduction);
+    }
+
+    public void PlaySoundEffect(AudioClip soundEffect)
+    {
+        speaker.PlayOneShot(soundEffect, PlayerOptions.soundFXVolume);
     }
 }

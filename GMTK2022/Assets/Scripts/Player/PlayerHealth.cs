@@ -39,6 +39,18 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void HealHealth(float amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        components.ui.SetHealthText();
+    }
+
     public void InitializePlayerHealth()
     {
         currentHealth = maxHealth;

@@ -9634,6 +9634,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 1
   speaker: {fileID: 6584407169437357145}
+  lowerAudio: 1
+  lowerAmount: 0.5
 --- !u!82 &6584407169437357145
 AudioSource:
   m_ObjectHideFlags: 0

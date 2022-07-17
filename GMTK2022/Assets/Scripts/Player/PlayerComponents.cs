@@ -11,8 +11,13 @@ public class PlayerComponents : MonoBehaviour
     public PlayerHealth health;
     public KinematicCharacterMotor motor;
     public PlayerUI ui;
-    public PlayerAttackController attackController;
     public PlayerAudioController audioController;
     public PlayerAbilities abilities;
+    public ExampleCharacterController character;
+
+    [Header("Weapons")]
+    public PlayerWeaponSwitcher weaponSwitcher;
+    public WeaponController basicBlaster;
+    public WeaponController revolverBlaster;
 
 }

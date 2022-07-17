@@ -6,6 +6,8 @@ public class PrefabDestroyer : MonoBehaviour
 {
     public float destroyTime;
     public AudioSource speaker;
+    public bool lowerAudio;
+    public float lowerAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,14 @@ public class PrefabDestroyer : MonoBehaviour
 
         if (speaker != null)
         {
-            speaker.volume = PlayerOptions.soundFXVolume;
+            if (!lowerAudio)
+            {
+                speaker.volume = PlayerOptions.soundFXVolume;
+            }
+            else if (lowerAudio)
+            {
+                speaker.volume = PlayerOptions.soundFXVolume * lowerAmount;
+            }
         }
     }
 }

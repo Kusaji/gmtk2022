@@ -10,12 +10,24 @@ public class PlayerUI : MonoBehaviour
     public PlayerComponents components;
     public GameObject pauseMenu;
     public Text health;
+    public Text weaponInfo;
     public bool isPaused;
+    public Text scoreText;
+    public Text maxEnemiesText;
+    public Text maxMoveSpeedText;
+
+    public Image blasterIcon;
+    public Image revolverIcon;
+    public Image rifleIcon;
 
     private void Start()
     {
         isPaused = false;
         Time.timeScale = 1;
+        revolverIcon.color = new Color(1, 1, 1, 0.2f);
+        rifleIcon.color = new Color(1, 1, 1, 0.2f);
+
+        SetMaxMoveSpeedText(components.character.MaxStableMoveSpeed);
     }
 
     private void Update()
@@ -43,8 +55,43 @@ public class PlayerUI : MonoBehaviour
         SceneManager.LoadScene(currentScene);
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     public void SetHealthText()
     {
         health.text = $"Health: {components.health.currentHealth} | {components.health.maxHealth}";
+    }
+
+    public void UnlockRifle()
+    {
+        rifleIcon.color = new Color(1, 1, 1, 1.0f);
+    }
+
+    public void UnlockRevolver()
+    {
+        revolverIcon.color = new Color(1, 1, 1, 1.0f);
+    }
+
+    public void SetScoreText(int enemiesKilled)
+    {
+        scoreText.text = $"Enemies Killed: {enemiesKilled}";
+    }
+
+    public void SetMaxEnemiesText(int maxEnemies)
+    {
+        maxEnemiesText.text = $"Max Enemies: {maxEnemies}";
+    }
+
+    public void SetMaxMoveSpeedText(float moveSpeed)
+    {
+        maxMoveSpeedText.text = $"Move Speed: {moveSpeed}";
     }
 }

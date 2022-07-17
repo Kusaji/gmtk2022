@@ -11,16 +11,19 @@ public class EnemySoundController : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        speaker.PlayOneShot(attackSounds[Random.Range(0, attackSounds.Count)], PlayerOptions.soundFXVolume);
+        speaker.pitch = Random.Range(0.95f, 1.05f);
+        speaker.PlayOneShot(attackSounds[Random.Range(0, attackSounds.Count)], PlayerOptions.soundFXVolume * 0.3f);
     }
 
     public void PlayDeathSound()
     {
-        speaker.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Count)], PlayerOptions.soundFXVolume);
+        speaker.pitch = Random.Range(0.95f, 1.05f);
+        speaker.PlayOneShot(deathSounds[Random.Range(0, deathSounds.Count)], PlayerOptions.soundFXVolume * 0.3f);
     }
 
     public void PlayAggroSound()
     {
-        speaker.PlayOneShot(aggroSounds[Random.Range(0, aggroSounds.Count)], PlayerOptions.soundFXVolume * 0.5f);
+        speaker.pitch = Random.Range(0.95f, 1.05f);
+        speaker.PlayOneShot(aggroSounds[Random.Range(0, aggroSounds.Count)], PlayerOptions.soundFXVolume * 0.2f);
     }
 }

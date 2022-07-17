@@ -11,12 +11,23 @@ public class PlayerScore : MonoBehaviour
     private void Start()
     {
         components = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponents>();
+
+        enemiesKilled = 0;
+        components.ui.SetScoreText(enemiesKilled);
+    }
+
+    private void OnEnable()
+    {
+        components = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponents>();
+
+
+        enemiesKilled = 0;
+        components.ui.SetScoreText(enemiesKilled);
     }
 
     public void AddKill()
     {
         enemiesKilled ++;
         components.ui.SetScoreText(enemiesKilled);
-
     }
 }

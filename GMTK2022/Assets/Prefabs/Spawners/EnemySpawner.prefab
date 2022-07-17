@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEnemies: 0
   maxEnemies: 6
-  enemySpawnCooldown: 1
+  enemySpawnCooldown: 2
   enemiesSpawned: 0
   nextSpawnIncrease: 20
-  spawnIncreaseAmount: 1
+  spawnIncreaseAmount: 2
   enemyPrefabs:
   - {fileID: 8350729219649158688, guid: 19da78310b187fa408e725c81b870509, type: 3}
   - {fileID: 1236000176368249997, guid: 2c54a0f47c679784588426b6898985ba, type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6165243717033938495}
   - component: {fileID: 8617301818930107148}
   - component: {fileID: 5867532833598643112}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Aggroradius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +995,7 @@ GameObject:
   - component: {fileID: 3421830549858354666}
   - component: {fileID: 3300096262930439816}
   - component: {fileID: 1700738352876851489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_2Legs
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1108,6 +1108,9 @@ MonoBehaviour:
   lookAtRayOffset: {x: 0, y: 0.45, z: 0}
   heightDifference: 0
   enemyComponents: {fileID: 8350729219649158693}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!114 &7003647427798167821
 MonoBehaviour:
   m_ObjectHideFlags: 0

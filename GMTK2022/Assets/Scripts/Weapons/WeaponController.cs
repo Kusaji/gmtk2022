@@ -7,6 +7,9 @@ public class WeaponController : MonoBehaviour
     [Header("Player Components")]
     public PlayerComponents components;
 
+    public LayerMask ignorePlayer;
+    public LayerMask ignoreRays;
+
     public float nextShotTime;
 
     [Space(10)]
@@ -34,6 +37,8 @@ public class WeaponController : MonoBehaviour
 
     [Header("Bools")]
     public bool basicAttackReady;
+
+    public LayerMask layerMask;
 
     //Coroutines
     private IEnumerator namedBasicAttackRoutine;
@@ -107,13 +112,13 @@ public class WeaponController : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 100f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, 100f, layerMask))
         {
             //
             //Uncomment out if you need to see what the player is aiming at / hitting.
-                //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue, 5f);
-                //Debug.Log(hit.transform.gameObject);
-            //
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue, 5f);
+            Debug.Log(hit.transform.gameObject);
+
 
             cameraRayHitPoint = hit.point;
             shootPoint.transform.LookAt(cameraRayHitPoint);

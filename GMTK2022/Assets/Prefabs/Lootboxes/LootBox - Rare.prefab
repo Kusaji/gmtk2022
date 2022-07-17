@@ -49,7 +49,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.71193844, y: 0.44026187, z: 0.77975446}
+  m_Size: {x: 1.5, y: 0.44026187, z: 1.5}
   m_Center: {x: -0.015560509, y: 0.27986905, z: -0.0072469423}
 --- !u!65 &6336360037760882587
 BoxCollider:
@@ -96,6 +96,9 @@ MonoBehaviour:
   - {fileID: 5243193919453438828, guid: b1750b8c7d1d6944aa9e1a01e7e75799, type: 3}
   - {fileID: 411296943745977686, guid: d172ab75e9a507f45a99ea47aa982aba, type: 3}
   - {fileID: 5243193919453438828, guid: da135cc38fc83f147bed8acf6a324572, type: 3}
+  - {fileID: 5243193919453438828, guid: da135cc38fc83f147bed8acf6a324572, type: 3}
+  - {fileID: 5243193919453438828, guid: da135cc38fc83f147bed8acf6a324572, type: 3}
+  - {fileID: 5243193919453438828, guid: b1750b8c7d1d6944aa9e1a01e7e75799, type: 3}
   explosionPrefab: {fileID: 727181427515208254, guid: 49bc2a9057234f547af72e884471aa5c, type: 3}
   speaker: {fileID: 1656989056871796309}
   openSound: {fileID: 8300000, guid: 8952ecb6641784147b9faca94dd6661e, type: 3}

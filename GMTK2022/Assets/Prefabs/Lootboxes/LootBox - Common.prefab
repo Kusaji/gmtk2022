@@ -49,7 +49,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.71193844, y: 0.44026187, z: 0.77975446}
+  m_Size: {x: 1.5, y: 0.44026187, z: 1.5}
   m_Center: {x: -0.015560509, y: 0.27986905, z: -0.0072469423}
 --- !u!65 &6336360037760882587
 BoxCollider:
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDrops:
   - {fileID: 411296943745977686, guid: b5ff846dd1316c047a9cfe1c2926b10e, type: 3}
+  - {fileID: 5243193919453438828, guid: 45ec0fd1c55416941aee5f4ab0e017c2, type: 3}
   - {fileID: 5243193919453438828, guid: 45ec0fd1c55416941aee5f4ab0e017c2, type: 3}
   explosionPrefab: {fileID: 727181427515208254, guid: 49bc2a9057234f547af72e884471aa5c, type: 3}
   speaker: {fileID: 1656989056871796309}

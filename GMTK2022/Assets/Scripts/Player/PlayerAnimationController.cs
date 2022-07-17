@@ -64,6 +64,11 @@ public class PlayerAnimationController : MonoBehaviour
             playerAnimator.SetFloat("Horizontal", 0);
             playerAnimator.SetFloat("Vertical", 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerAnimator.SetTrigger("Jump");
+        }
     }
 
     void HandlePlayerInput()

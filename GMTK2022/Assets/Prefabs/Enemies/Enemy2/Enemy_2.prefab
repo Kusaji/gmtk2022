@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2173518370566237747}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CharacterArmature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7887538398395071389}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7629833084829860922}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LowerArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4339247557995720926}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LowerArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2945116079188131440}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UpperArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 8457378444258165644}
   - component: {fileID: 8080182567829996606}
   - component: {fileID: 918449810345945662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.6
   m_Center: {x: 0, y: 2.76, z: 0}
 --- !u!114 &8080182567829996606
 MonoBehaviour:
@@ -453,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4526475859881977721}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3335423129173114761}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Eye_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5970287132133667312}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6432697367715276231}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6501148326040500588}
   - component: {fileID: 867024000486474313}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube.000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,6 +745,9 @@ MonoBehaviour:
   lookAtRayOffset: {x: 0, y: 0.44, z: 0}
   heightDifference: 0
   enemyComponents: {fileID: 8080182567829996606}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!54 &5689118305513987287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,7 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033653457962868204}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +822,7 @@ GameObject:
   - component: {fileID: 3984489510113254546}
   - component: {fileID: 1536385249888321953}
   - component: {fileID: 3722561962958178565}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Aggroradius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8086887144500264869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7177400239635062350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345460921843817529}
   - component: {fileID: 4223204672154939274}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8871739365434451968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UpperArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5604122843875190658}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,7 +1263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637158040730232897}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}

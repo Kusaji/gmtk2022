@@ -33,6 +33,7 @@ public class EnemyNavController : MonoBehaviour
 
     [Header("Components")]
     public EnemyComponents enemyComponents;
+    public LayerMask layerMask;
 
     //Coroutines
     private IEnumerator NamedFollowTargetRoutine;
@@ -42,6 +43,7 @@ public class EnemyNavController : MonoBehaviour
     {
         enemyComponents.navAgent.stoppingDistance = followDistance;
         enemyComponents.navAgent.speed = moveSpeed;
+
 
 /*        if (NamedFollowTargetRoutine == null)
         {
@@ -134,7 +136,7 @@ public class EnemyNavController : MonoBehaviour
         //Determine if enemy is directly aiming at target.
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position + lookAtRayOffset, transform.TransformDirection(Vector3.forward), out hit, 50f))
+        if (Physics.Raycast(transform.position + lookAtRayOffset, transform.TransformDirection(Vector3.forward), out hit, 50f, layerMask))
         {
             Debug.DrawRay(transform.position + lookAtRayOffset, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             aimingAtTarget = true;
